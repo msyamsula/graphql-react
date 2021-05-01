@@ -2,7 +2,8 @@ import express from "express"
 import { users, hello } from "./model/users.js"
 import { graphqlHTTP } from "express-graphql"
 import { schema } from "./schema/schema.js"
-import axios from "axios"
+import { db } from "./connection/mongo.js"
+
 
 
 const app = express();
@@ -14,7 +15,8 @@ app.use("/graphql", graphqlHTTP({
 }))
 
 app.get("/hello", async(req, res) => {
-    console.log(req);
+    // console.log(req);
+    console.log(db);
     res.send(hello)
 })
 

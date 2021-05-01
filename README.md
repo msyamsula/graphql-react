@@ -12,12 +12,14 @@ REQUIREMENTS
 7. lodash: walk through collection of data
 8. axios: http call
 9. nodemon: like spring-dev-tools, for auto restart for change, see package.json for nodemon implementation
+10. mongoose: to connect to mongodb
 10. this project dependent to "restapi-java" project
 -- db --
 1. Mysql database with user "root", password "mysql", dbname "gorm"
     Table Person (id, name, address, account_id)
     Table Account (id, username, password)
-    Table Student (id, grades)
+    Table Student (id, grades), see restapi-java properties for uri
+2. mongodb user "mongo" pass "mongo", database "graphql", collection "Person", see connection/mongo.js
 
 
 WHAT IS GRAPHQL
@@ -29,14 +31,15 @@ GRAPHQL SCHEMA
 2. root query: is a first node in our graph to be search (entrypoint to our graph)
 3. graphql schema implementation is in schema/schema.js
 4. see schema/schema.js to see how to connect graphqltype (Person and Account connection)
-
+5. mutation: is an entrypoint for our POST, PUT, DELETE in graphql.. and you can think that root query is entrypoint for GET in graphql
 
 NOTES
 1. see graphql boilerplate for node js in server.js
-2. user standard export in js, in can't specify "type: module" in package json
+2. user standard export in js, if can't, specify "type: module" in package json
 3. see how import and export in model/users.js, schema/schema.js, and server.js
 4. graphql comes with graphiql module (it's like swagger in api, check it out)
 5. use arrow function for fields in graphQLType to resolve circular reference. check closure and closure scope in javascript
+6. graphql client module in js, lokka, apollo, relay. check it out
 
 DOCUMENTATION
 
